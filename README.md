@@ -22,20 +22,20 @@ $$\sigma = \frac{n_{\text{cycles}}}{2 \pi f_w}$$
 ### Key Equations
 1. **Frequency-Domain Convolution**:
 
-   $$\text{conv}(f) = \mathcal{F}(\text{signal}) \cdot \mathcal{F}(\psi)$$
+$$\text{conv}(f) = \mathcal{F}(\text{signal}) \cdot \mathcal{F}(\psi)$$
    
    where $\mathcal{F}$ denotes the Fourier transform.
 
 2. **Reconstructed Signal**:
 
-   $$\text{signal}_{\text{filtered}} = \mathcal{F}^{-1}(\text{conv}(f))$$
+$$\text{signal}_{\text{filtered}} = \mathcal{F}^{-1}(\text{conv}(f))$$
    
    where $\mathcal{F}^{-1}$ is the inverse Fourier transform.
 
 3. **Normalization**:
    To preserve the amplitude integrity, the wavelet's Fourier transform is normalized as:
    
-   $$\mathcal{F}(\psi) \leftarrow \frac{\mathcal{F}(\psi)}{\max(\mathcal{F}(\psi))}$$
+$$\mathcal{F}(\psi) \leftarrow \frac{\mathcal{F}(\psi)}{\max(\mathcal{F}(\psi))}$$
 
 ### Example Usage
 The library includes implementations for:
