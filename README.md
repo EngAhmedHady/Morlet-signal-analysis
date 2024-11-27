@@ -47,3 +47,35 @@ The library includes implementations for:
 Simply include the `wavelet_analysis.py` file in your project and import the functions as needed:
 ```python
 from wavelet_analysis import morlet
+```
+
+## Functions Overview
+### ``morlet``
+Performs a Morlet wavelet transform on the input signal. Supports both single-frequency and multi-frequency analyses.
+
+#### Parameters:
+   - ** ``signal`` ** (np.ndarray): Input signal array.
+   - ** ``fs`` ** (float): Sampling frequency in Hz.
+   - ** ``fw`` ** (float | list[float], optional): Target frequency (or list of frequencies) for analysis.
+   - ** ``n_cycles`` ** (int | list[int], optional): Number of cycles for each wavelet. Defaults to 7.
+   - ** ``review`` ** (bool | list[int], optional): Whether to preview results. Can specify a frequency range for plotting.
+   - ** ``units`` ** (str, optional): Units for the signal (default: 'mm').
+#### Returns:
+   - np.ndarray: The transformed signal(s) in time-frequency space.
+
+### ``WaveletGeneration``
+Generates a complex Morlet wavelet and applies it to the input signal using frequency-domain convolution.
+
+#### Parameters:
+   - ** ``signal`` **, ** ``nconv`` **, ** ``tw`` **, ** ``ts`` **, ** ``fw`` **, ** ``sigma`` **,
+    ** ``fs`` **, ** ``ploting`` **, ** ``units`` **...
+#### Returns:
+   - np.ndarray: Filtered signal reconstructed via inverse FFT.
+
+#### Note:
+    This function is internally called by morlet.
+
+## References
+    1. Basley, J., Perret, L., & Mathis, R. (2018). Spatial modulations of kinetic energy in the roughness sublayer. Journal of Fluid Mechanics, 850, 584–610. DOI: 10.1017/jfm.2018.458
+    2. ussell, B., & Han, J. (2016). Jean Morlet and the continuous wavelet transform. CREWES Research Report, 28, 115.
+
