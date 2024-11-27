@@ -1,7 +1,7 @@
 # Morlet Continuous Wavelet Transform (CWT)
 
 ## Introduction
-To analyze the temporal evolution of spectral signatures in fluctuating flow fields, 
+To analyze the temporal evolution of spectral signatures in a signal, 
 the **Continuous Wavelet Transform (CWT)** is utilized. 
 This transformative approach decomposes a signal into highly localized wavelets, 
 enabling detailed inspection in both time and frequency domains 
