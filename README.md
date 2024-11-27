@@ -1,7 +1,7 @@
 # Wavelet Signal Analysis and Continuous Wavelet Transform (CWT) Library
 
 ## Introduction
-To analyze the temporal evolution of spectral signatures in fluctuating flow fields, the **Continuous Wavelet Transform (CWT)** is utilized. This transformative approach decomposes a signal into highly localized wavelets, enabling detailed inspection in both time and frequency domains [1], [2]. By employing **complex Morlet wavelets**, the method provides a powerful representation of time-frequency dynamics. The **Morlet wavelet**, characterized by the modulation of a Gaussian envelope with a complex sinusoidal function, is particularly well-suited for analyzing non-stationary signals with varying spectral content.
+To analyze the temporal evolution of spectral signatures in fluctuating flow fields, the **Continuous Wavelet Transform (CWT)** is utilized. This transformative approach decomposes a signal into highly localized wavelets, enabling detailed inspection in both time and frequency domains [#1], [#2]. By employing **complex Morlet wavelets**, the method provides a powerful representation of time-frequency dynamics. The **Morlet wavelet**, characterized by the modulation of a Gaussian envelope with a complex sinusoidal function, is particularly well-suited for analyzing non-stationary signals with varying spectral content.
 
 ### Key Features of CWT:
 1. **Time-Frequency Localization**: Wavelets allow for the simultaneous analysis of time and frequency components, capturing transient features in the data.
@@ -76,7 +76,7 @@ Generates a complex Morlet wavelet and applies it to the input signal using freq
     This function is internally called by morlet.
 
 ## References
-   [1]: Basley, J., Perret, L., & Mathis, R. (2018). Spatial modulations of kinetic energy in the roughness sublayer. Journal of Fluid Mechanics, 850, 584–610. DOI: [10.1017/jfm.2018.458](http://dx.doi.org/10.1017/jfm.2018.458)
+   [[1](#1)]: Basley, J., Perret, L., & Mathis, R. (2018). Spatial modulations of kinetic energy in the roughness sublayer. Journal of Fluid Mechanics, 850, 584–610. DOI: [10.1017/jfm.2018.458](http://dx.doi.org/10.1017/jfm.2018.458)
    
-   [2]: ussell, B., & Han, J. (2016). Jean Morlet and the continuous wavelet transform. CREWES Research Report, 28, 115.
+   [[2](#2)]: ussell, B., & Han, J. (2016). Jean Morlet and the continuous wavelet transform. CREWES Research Report, 28, 115.
 
