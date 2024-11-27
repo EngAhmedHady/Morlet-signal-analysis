@@ -1,7 +1,7 @@
 # Wavelet Signal Analysis and Continuous Wavelet Transform (CWT) Library
 
 ## Introduction
-To analyze the temporal evolution of spectral signatures in fluctuating flow fields, the **Continuous Wavelet Transform (CWT)** is utilized. This transformative approach decomposes a signal into highly localized wavelets, enabling detailed inspection in both time and frequency domains [1][1], [2][2]. By employing **complex Morlet wavelets**, the method provides a powerful representation of time-frequency dynamics. The **Morlet wavelet**, characterized by the modulation of a Gaussian envelope with a complex sinusoidal function, is particularly well-suited for analyzing non-stationary signals with varying spectral content.
+To analyze the temporal evolution of spectral signatures in fluctuating flow fields, the **Continuous Wavelet Transform (CWT)** is utilized. This transformative approach decomposes a signal into highly localized wavelets, enabling detailed inspection in both time and frequency domains [1](1), [2](2). By employing **complex Morlet wavelets**, the method provides a powerful representation of time-frequency dynamics. The **Morlet wavelet**, characterized by the modulation of a Gaussian envelope with a complex sinusoidal function, is particularly well-suited for analyzing non-stationary signals with varying spectral content.
 
 ### Key Features of CWT:
 1. **Time-Frequency Localization**: Wavelets allow for the simultaneous analysis of time and frequency components, capturing transient features in the data.
