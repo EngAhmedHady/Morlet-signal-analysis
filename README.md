@@ -17,7 +17,9 @@ $$ \sigma = \frac{n_{\text{cycles}}}{2 \pi f_w} $$
 
 ### Key Equations
 1. **Frequency-Domain Convolution**:
-   $$ \text{conv}(f) = \mathcal{F}(\text{signal}) \cdot \mathcal{F}(\psi) $$
+   ```math
+    \text{conv}(f) = \mathcal{F}(\text{signal}) \cdot \mathcal{F}(\psi) 
+   ```
    where \( \mathcal{F} \) denotes the Fourier transform.
 
 2. **Reconstructed Signal**:
