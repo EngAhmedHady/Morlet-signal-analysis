@@ -1,7 +1,7 @@
 # Wavelet Signal Analysis and Continuous Wavelet Transform (CWT) Library
 
 ## Introduction
-To analyze the temporal evolution of spectral signatures in fluctuating flow fields, the **Continuous Wavelet Transform (CWT)** is utilized. This transformative approach decomposes a signal into highly localized wavelets, enabling detailed inspection in both time and frequency domains [1, 2]. By employing **complex Morlet wavelets**, the method provides a powerful representation of time-frequency dynamics. The **Morlet wavelet**, characterized by the modulation of a Gaussian envelope with a complex sinusoidal function, is particularly well-suited for analyzing non-stationary signals with varying spectral content.
+To analyze the temporal evolution of spectral signatures in fluctuating flow fields, the **Continuous Wavelet Transform (CWT)** is utilized. This transformative approach decomposes a signal into highly localized wavelets, enabling detailed inspection in both time and frequency domains [1][1], [2][2]. By employing **complex Morlet wavelets**, the method provides a powerful representation of time-frequency dynamics. The **Morlet wavelet**, characterized by the modulation of a Gaussian envelope with a complex sinusoidal function, is particularly well-suited for analyzing non-stationary signals with varying spectral content.
 
 ### Key Features of CWT:
 1. **Time-Frequency Localization**: Wavelets allow for the simultaneous analysis of time and frequency components, capturing transient features in the data.
@@ -54,12 +54,12 @@ from wavelet_analysis import morlet
 Performs a Morlet wavelet transform on the input signal. Supports both single-frequency and multi-frequency analyses.
 
 #### Parameters:
-   - ** ``signal`` ** (np.ndarray): Input signal array.
-   - ** ``fs`` ** (float): Sampling frequency in Hz.
-   - ** ``fw`` ** (float | list[float], optional): Target frequency (or list of frequencies) for analysis.
-   - ** ``n_cycles`` ** (int | list[int], optional): Number of cycles for each wavelet. Defaults to 7.
-   - ** ``review`` ** (bool | list[int], optional): Whether to preview results. Can specify a frequency range for plotting.
-   - ** ``units`` ** (str, optional): Units for the signal (default: 'mm').
+   - **``signal``** (np.ndarray): Input signal array.
+   - **``fs``** (float): Sampling frequency in Hz.
+   - **``fw``** (float | list[float], optional): Target frequency (or list of frequencies) for analysis.
+   - **``n_cycles``** (int | list[int], optional): Number of cycles for each wavelet. Defaults to 7.
+   - **``review``** (bool | list[int], optional): Whether to preview results. Can specify a frequency range for plotting.
+   - **``units``** (str, optional): Units for the signal (default: 'mm').
 #### Returns:
    - np.ndarray: The transformed signal(s) in time-frequency space.
 
@@ -67,8 +67,8 @@ Performs a Morlet wavelet transform on the input signal. Supports both single-fr
 Generates a complex Morlet wavelet and applies it to the input signal using frequency-domain convolution.
 
 #### Parameters:
-   - ** ``signal`` **, ** ``nconv`` **, ** ``tw`` **, ** ``ts`` **, ** ``fw`` **, ** ``sigma`` **,
-    ** ``fs`` **, ** ``ploting`` **, ** ``units`` **...
+   - **``signal``**, **``nconv``**, **``tw``**, **``ts``**, **``fw``**, **``sigma``**,
+    **``fs``**, **``ploting``**, **``units``**...
 #### Returns:
    - np.ndarray: Filtered signal reconstructed via inverse FFT.
 
@@ -76,6 +76,6 @@ Generates a complex Morlet wavelet and applies it to the input signal using freq
     This function is internally called by morlet.
 
 ## References
-    1. Basley, J., Perret, L., & Mathis, R. (2018). Spatial modulations of kinetic energy in the roughness sublayer. Journal of Fluid Mechanics, 850, 584–610. DOI: 10.1017/jfm.2018.458
-    2. ussell, B., & Han, J. (2016). Jean Morlet and the continuous wavelet transform. CREWES Research Report, 28, 115.
+   [1]: Basley, J., Perret, L., & Mathis, R. (2018). Spatial modulations of kinetic energy in the roughness sublayer. Journal of Fluid Mechanics, 850, 584–610. DOI: [10.1017/jfm.2018.458](http://dx.doi.org/10.1017/jfm.2018.458)
+   [2]: ussell, B., & Han, J. (2016). Jean Morlet and the continuous wavelet transform. CREWES Research Report, 28, 115.
 
