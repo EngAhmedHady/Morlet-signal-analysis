@@ -10,23 +10,31 @@ To analyze the temporal evolution of spectral signatures in fluctuating flow fie
 
 ### Morlet Wavelet Definition
 The Morlet wavelet function $\psi(t)$ is defined as:
+
 $$\psi(t) = e^{2 \pi i f_w t} e^{-\frac{t^2}{2 \sigma^2}}$$
+
 where:
 - $f_w$: Center frequency of the wavelet.
 - $\sigma$: Standard deviation of the Gaussian envelope, determined by the number of cycles ($n_{\text{cycles}}$) as:
+
 $$\sigma = \frac{n_{\text{cycles}}}{2 \pi f_w}$$
 
 ### Key Equations
 1. **Frequency-Domain Convolution**:
+
    $$\text{conv}(f) = \mathcal{F}(\text{signal}) \cdot \mathcal{F}(\psi)$$
+   
    where $\mathcal{F}$ denotes the Fourier transform.
 
 2. **Reconstructed Signal**:
+
    $$\text{signal}_{\text{filtered}} = \mathcal{F}^{-1}(\text{conv}(f))$$
+   
    where $\mathcal{F}^{-1}$ is the inverse Fourier transform.
 
 3. **Normalization**:
    To preserve the amplitude integrity, the wavelet's Fourier transform is normalized as:
+   
    $$\mathcal{F}(\psi) \leftarrow \frac{\mathcal{F}(\psi)}{\max(\mathcal{F}(\psi))}$$
 
 ### Example Usage
