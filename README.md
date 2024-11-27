@@ -26,6 +26,9 @@ where:
 
 $$\sigma = \frac{n_{\text{cycles}}}{2 \pi f_w}$$
 
+![complexmorlet](https://github.com/user-attachments/assets/7e5d1a51-6005-4ba6-886c-360c08b21fc8)
+
+
 ### Key Equations
 1. **Frequency-Domain Convolution**:
 
@@ -125,7 +128,7 @@ Then Compute and plot the CWT.
 >>> norm = BoundaryNorm(levels, ncolors=cmap.N, clip=True)
 >>> im = ax.contourf(ts, fw, cwtm, levels=levels, cmap=cmap, norm=norm)
 >>> levels = MaxNLocator(nbins=n_levels).tick_values(0, maxvalue)
->>> imk = ax.contour(im, colors='k', levels=levels, alpha=np.linspace(1, 0.2,n_levels+1))
+>>> imk = ax.contour(im, colors='k', levels=levels, alpha=np.linspace(1, 0.2, n_levels + 1))
 >>> cbar = fig.colorbar(im, ax=ax, ticks=np.around(np.linspace(0, maxvalue, 5), 3))
 >>> ax.set_xlabel("Time (sec)")
 >>> ax.set_ylabel("Frequency (Hz)")
@@ -134,6 +137,7 @@ Then Compute and plot the CWT.
 >>> ax.hlines(60, 0, T, 'w', ls='--', alpha=0.5)
 >>> ax.text(T-0.45, 60+5, '60Hz', fontsize=22, alpha=0.5, color='w')
 ```
+<img width="1149" alt="Figure 2024-11-27 140726" src="https://github.com/user-attachments/assets/72620c35-68dd-4556-8f23-8be495298801">
 
 
 ## References
