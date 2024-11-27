@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/894953885.svg)](https://doi.org/10.5281/zenodo.14230807)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/EngAhmedHady/CoGenerator/blob/main/LICENSE)
 # Morlet Continuous Wavelet Transform (CWT)
 
 ## Introduction
