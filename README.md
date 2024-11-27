@@ -82,7 +82,7 @@ Generates a complex Morlet wavelet and applies it to the input signal using freq
 #### Note:
     This function is internally called by morlet.
 
-### Examples
+### Example
 Import the necessary libraries and adjust plotting parameters
 ```python
 >>> import numpy as np
@@ -116,25 +116,23 @@ The input parameters are:
 ```
 Then Compute and plot the CWT.
 ```python
-cwtm = wl.morlet(signal[1], fs, 
-                 n_cycles = n_cycles, fw = fw, 
-                 units = 'mm')
+>>> cwtm = wl.morlet(signal[1], fs, n_cycles=n_cycles, fw=fw, units='mm')
 
 # Visualise morlet CWT
-fig,ax = plt.subplots(figsize=(20, 10))
-levels = MaxNLocator(nbins=n_color_levels).tick_values(0, maxvalue)
-cmap = plt.colormaps['jet']
-norm = BoundaryNorm(levels, ncolors=cmap.N, clip=True)
-im = ax.contourf(ts, fw, cwtm, levels=levels, cmap=cmap, norm=norm)
-levels = MaxNLocator(nbins=n_levels).tick_values(0, maxvalue)
-imk = ax.contour(im, colors='k', levels=levels, alpha=np.linspace(1, 0.2,n_levels+1))
-cbar = fig.colorbar(im, ax=ax, ticks=np.around(np.linspace(0, maxvalue, 5), 3))
-ax.set_xlabel("Time (sec)")
-ax.set_ylabel("Frequency (Hz)")
-ax.set_ylim([1, 750])
+>>> fig, ax = plt.subplots(figsize=(20, 10))
+>>> levels = MaxNLocator(nbins=n_color_levels).tick_values(0, maxvalue)
+>>> cmap = plt.colormaps['jet']
+>>> norm = BoundaryNorm(levels, ncolors=cmap.N, clip=True)
+>>> im = ax.contourf(ts, fw, cwtm, levels=levels, cmap=cmap, norm=norm)
+>>> levels = MaxNLocator(nbins=n_levels).tick_values(0, maxvalue)
+>>> imk = ax.contour(im, colors='k', levels=levels, alpha=np.linspace(1, 0.2,n_levels+1))
+>>> cbar = fig.colorbar(im, ax=ax, ticks=np.around(np.linspace(0, maxvalue, 5), 3))
+>>> ax.set_xlabel("Time (sec)")
+>>> ax.set_ylabel("Frequency (Hz)")
+>>> ax.set_ylim([1, 750])
 # Location of imposed signal
-ax.hlines(60, 0, T, 'w', ls='--', alpha=0.5)
-ax.text(T-0.45, 60+5, '60Hz', fontsize=22, alpha=0.5, color='w')
+>>> ax.hlines(60, 0, T, 'w', ls='--', alpha=0.5)
+>>> ax.text(T-0.45, 60+5, '60Hz', fontsize=22, alpha=0.5, color='w')
 ```
 
 
