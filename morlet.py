@@ -67,12 +67,13 @@ def plotting(signal: np.ndarray,  ts: np.ndarray,  fs: float,  tw: np.ndarray,
     # original signal plot
     fig,ax = plt.subplots(figsize=(20, 7))
     ax.plot(ts, signal)
+    ax.set_title('Original Signal')
     ax.set_xlabel('Time (sec)')
     ax.set_ylabel(f'Amplitude ({units})')
     ax.set_xlim([0,0.5]) # limited to half second only
     
     # complex representation of the wavelet
-    ax = plt.figure(figsize=(20, 15)).add_subplot(projection='3d')
+    ax = plt.figure(figsize=(15, 15)).add_subplot(projection='3d')
     ax.plot(tw,np.real(cmw), -1, '--k', alpha=0.2)
     ax.plot(tw, np.ones(len(tw)), np.imag(cmw), '--k', alpha=0.2)
     ax.plot(-np.ones(len(tw)), np.real(cmw), np.imag(cmw), '--k', alpha=0.2)
@@ -88,12 +89,14 @@ def plotting(signal: np.ndarray,  ts: np.ndarray,  fs: float,  tw: np.ndarray,
     ax.set_zticklabels(ax.get_zticks(), fontdict={'ha':'left'}, fontsize=25)
     ax.set_xticklabels(ax.get_xticks(),fontsize=25)
     ax.set_yticklabels(ax.get_yticks(), fontsize=25)
+    # ax.set_title('Wavelet')
     # for rotating the view
     # ax.view_init(elev=90, azim=0, roll=0)
     
     # Frequency-domain convolution plots
     # Convelution process (Original signal FFT, morlet FFT, the convoluted signal)
-    fig,ax = plt.subplots(3, 1, figsize=(20, 25))
+    fig,ax = plt.subplots(3, 1, figsize=(16, 22))
+    fig.tight_layout(h_pad=3)
     ax[0].plot(f_line, 2*np.abs(ssFFT)[:len(f_line)])
     ax[0].set_title('Original Signal FFT')
     ax[0].set_ylabel(units)
@@ -121,7 +124,7 @@ def plotting(signal: np.ndarray,  ts: np.ndarray,  fs: float,  tw: np.ndarray,
     
     # complex representation of the filtered signal
     Plot_recon = conv_recons / np.amax(abs(conv_recons))
-    ax = plt.figure(figsize=(30,15)).add_subplot(projection='3d')
+    ax = plt.figure(figsize=(15,15)).add_subplot(projection='3d')
     ax.plot(ts[0:750], np.real(Plot_recon[0:750]),-1,'--k', alpha=0.2)
     ax.plot(ts[0:750], np.ones(750), np.imag(Plot_recon)[0:750], '--k', alpha=0.2)
     ax.plot(np.zeros(750), np.real(Plot_recon)[0:750], np.imag(Plot_recon)[0:750], '--k', alpha=0.2)
@@ -137,7 +140,8 @@ def plotting(signal: np.ndarray,  ts: np.ndarray,  fs: float,  tw: np.ndarray,
     ax.set_zticklabels(ax.get_zticks(), fontdict={'ha':'left'})
     
     # Filtered signal analysis
-    fig,ax = plt.subplots(3, 1, figsize=(20, 25))
+    fig,ax = plt.subplots(3, 1, figsize=(16, 22))
+    fig.tight_layout(h_pad=3)
     ax[0].plot(ts, np.real(conv_recons))
     ax[0].plot(ts, signal)
     ax[0].set_title('Filtered signal')

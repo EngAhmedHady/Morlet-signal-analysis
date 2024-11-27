@@ -1,11 +1,14 @@
-# Wavelet Signal Analysis and Continuous Wavelet Transform (CWT) Library
+# Morlet Continuous Wavelet Transform (CWT)
 
 ## Introduction
 To analyze the temporal evolution of spectral signatures in fluctuating flow fields, 
 the **Continuous Wavelet Transform (CWT)** is utilized. 
 This transformative approach decomposes a signal into highly localized wavelets, 
 enabling detailed inspection in both time and frequency domains 
-[[1](#1), [2](#2)]. By employing **complex Morlet wavelets**, the method provides a powerful representation of time-frequency dynamics. The **Morlet wavelet**, characterized by the modulation of a Gaussian envelope with a complex sinusoidal function, is particularly well-suited for analyzing non-stationary signals with varying spectral content.
+[[1](#1), [2](#2)]. By employing **complex Morlet wavelets**, 
+the method provides a powerful representation of time-frequency dynamics. The **Morlet wavelet**, 
+characterized by the modulation of a Gaussian envelope with a complex sinusoidal function,
+ is particularly well-suited for analyzing non-stationary signals with varying spectral content.
 
 ### Key Features of CWT:
 1. **Time-Frequency Localization**: Wavelets allow for the simultaneous analysis of time and frequency components, capturing transient features in the data.
@@ -48,9 +51,9 @@ The library includes implementations for:
 - **Diagnostic Plots**: Visualization of original, filtered, and reconstructed signals, along with frequency-domain representations.
 
 ## Installation
-Simply include the `wavelet_analysis.py` file in your project and import the functions as needed:
+Simply include the `morlet.py` file in your project and import the functions as needed:
 ```python
-from wavelet_analysis import morlet
+import morlet as wl
 ```
 
 ## Functions Overview
@@ -78,6 +81,62 @@ Generates a complex Morlet wavelet and applies it to the input signal using freq
 
 #### Note:
     This function is internally called by morlet.
+
+### Examples
+Import the necessary libraries and adjust plotting parameters
+```python
+>>> import numpy as np
+>>> import pandas as pd
+>>> import matplotlib.pyplot as plt
+>>> import morlet as wl
+>>> from matplotlib.ticker import MaxNLocator
+>>> from matplotlib.colors import BoundaryNorm
+>>> plt.rcParams.update({'font.size': 30})
+>>> plt.rcParams["text.usetex"] =  False
+>>> plt.rcParams["font.family"] = "Times New Roman"
+```
+Import signal file using pandas dataframe for easy data manipulation, note the data sampled in 1500Hz with a 60Hz imposed signal. 
+```python
+>>> file_path = 'signal.txt'
+>>> signal = pd.read_csv(fr'{file_path}', header=None)
+>>> n_samples = len(signal)
+```
+
+The input parameters are: 
+```python
+# Signal info.
+>>> fs = 1500
+>>> T = n_samples/fs
+>>> ts = np.linspace(0, T, n_samples)
+
+# Wavelet prams.
+>>> transition_steps = 100
+>>> n_cycles = 64
+>>> fw = np.linspace(1,int(fs/2),transition_steps)
+```
+Then Compute and plot the CWT.
+```python
+cwtm = wl.morlet(signal[1], fs, 
+                 n_cycles = n_cycles, fw = fw, 
+                 units = 'mm')
+
+# Visualise morlet CWT
+fig,ax = plt.subplots(figsize=(20, 10))
+levels = MaxNLocator(nbins=n_color_levels).tick_values(0, maxvalue)
+cmap = plt.colormaps['jet']
+norm = BoundaryNorm(levels, ncolors=cmap.N, clip=True)
+im = ax.contourf(ts, fw, cwtm, levels=levels, cmap=cmap, norm=norm)
+levels = MaxNLocator(nbins=n_levels).tick_values(0, maxvalue)
+imk = ax.contour(im, colors='k', levels=levels, alpha=np.linspace(1, 0.2,n_levels+1))
+cbar = fig.colorbar(im, ax=ax, ticks=np.around(np.linspace(0, maxvalue, 5), 3))
+ax.set_xlabel("Time (sec)")
+ax.set_ylabel("Frequency (Hz)")
+ax.set_ylim([1, 750])
+# Location of imposed signal
+ax.hlines(60, 0, T, 'w', ls='--', alpha=0.5)
+ax.text(T-0.45, 60+5, '60Hz', fontsize=22, alpha=0.5, color='w')
+```
+
 
 ## References
 <a id="1"></a>1. Basley, J., Perret, L., & Mathis, R. (2018). Spatial modulations of kinetic energy in the roughness sublayer. Journal of Fluid Mechanics, 850, 584–610. DOI: [10.1017/jfm.2018.458](http://dx.doi.org/10.1017/jfm.2018.458)
