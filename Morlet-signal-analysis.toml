@@ -1,0 +1,22 @@
+[project]
+name = "Morlet signal analysis"
+version = "1.0.0"
+authors = [
+  { name="Ahmed H. Hanfy", email="ahmed.hady.hanfy92@gmail.com" },
+  { name="Pawel Flaszyński"},
+  { name="Piotr Kaczyński"},
+  { name="Piotr Doerffer" },
+]
+description = "This software is designed for analyzing the temporal evolution of spectral signatures in fluctuating flow fields using the Continuous Wavelet Transform (CWT). By decomposing signals into highly localized wavelets, the CWT enables a detailed examination of both time and frequency domains. This powerful approach provides deeper insights into flow dynamics and the modulation of kinetic energy, making it particularly useful for studying turbulent flows, shock wave oscillations, and other complex flow phenomena."
+readme = "README.md"
+requires-python = ">=3.8"
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/EngAhmedHady/Morlet-signal-analysis"
+Issues = "https://github.com/EngAhmedHady/Morlet-signal-analysis/issues"
