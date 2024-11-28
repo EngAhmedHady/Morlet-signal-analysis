@@ -24,10 +24,10 @@ authors:
     roles:
       - co-advisor
 
-title: "Morlet signal analysis"
+title: Morlet signal analysis
 identifiers:
   - type: doi
-    value: "https://doi.org/10.5281/zenodo.14230807"
+    value: https://doi.org/10.5281/zenodo.14230807
 version: "1.0.0"
 date-released: "27 Novamber 2024"
 url: "https://github.com/EngAhmedHady/Morlet-signal-analysis/tree/v1.0"
